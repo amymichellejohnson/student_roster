@@ -1,6 +1,11 @@
-studentRoster.controller('StudentsCtrl', function StudentsCtril($scope) {
-  $scope.students = [
-  { name: "Loewy Peyran"}
-  { name: "Paul Bunion"}
-  ]
-})
+studentRoster.controller('StudentsCtrl', function StudentsCtrl($scope) {
+  $scope.students = [];
+  $scope.addStudent = function() {
+    $scope.students.push({name: $scope.studentName});
+    $scope.studentName=null;
+  };
+  $scope.deleteStudent = function(student) {
+    var index = $scope.students.indexOf(student);
+    $scope.students.splice(index, 1);
+  };
+});
